@@ -39,9 +39,8 @@ fn part2() -> i32 {
         for (_num, line) in contents.lines().enumerate() {
             let value = line.trim().parse::<i32>().unwrap();
             count = count + value;
-            let already_inserted = !numbers.insert(count);
-            if already_inserted {
-                found = true;
+            found = !numbers.insert(count);
+            if found {
                 break;
             };
         }
